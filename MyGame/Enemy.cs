@@ -8,13 +8,13 @@ namespace MyGame
 
         public Enemy(string name)
         {
-            SetName(name);
+            this.name = SetName(name);
             health = 100;
             shield = 0;
         }
 
         public string GetName() => name;
-
+            
         public string SetName(string name) 
         {
             this.name = name.Trim();
@@ -35,6 +35,19 @@ namespace MyGame
                 shield = 0;
                 health -= demageLeft;
                 if(health < 0) health = 0;
+            }
+        }
+
+        public void PickupPowerUp(PowerUp powerUp, float gain)
+        {
+            if(powerUp == PowerUp.Health)
+            {
+                health+= gain;
+            }
+            else if (powerUp == PowerUp.Shield)
+            {
+                shield += gain;
+                if(shield > 100) shield = 100;
             }
         }
         
