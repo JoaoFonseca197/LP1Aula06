@@ -2,6 +2,7 @@ namespace MyGame
 {
     class Enemy
     {
+        private static int numPowerups;
         private string name;
         private float health;
         private float shield;
@@ -12,6 +13,7 @@ namespace MyGame
             health = 100;
             shield = 0;
         }
+
 
         public string GetName() => name;
             
@@ -40,6 +42,7 @@ namespace MyGame
 
         public void PickupPowerUp(PowerUp powerUp, float gain)
         {
+            numPowerups++;
             if(powerUp == PowerUp.Health)
             {
                 health+= gain;
@@ -49,6 +52,16 @@ namespace MyGame
                 shield += gain;
                 if(shield > 100) shield = 100;
             }
+        }
+
+        public static int GetPowerupCount()
+        {
+            return numPowerups;
+        }
+
+        static Enemy()
+        {
+            numPowerups = 0;
         }
         
     }

@@ -39,6 +39,8 @@ namespace MyGame
                 Console.WriteLine($">>{enemy.GetName()}<< HP={enemy.GetHealth()} Shield={enemy.GetShield()}<<");
             }
 
+            Console.WriteLine($"Powerup count: {Enemy.GetPowerupCount()}");
+
         }
     }
 }
